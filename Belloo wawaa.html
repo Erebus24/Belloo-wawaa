@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun, playful font */
+            text-align: center;
+            background-image: url('https://via.placeholder.com/800x600/87ceeb/ffffff?text=Cinnamoroll+Sky'); /* Placeholder for Cinnamoroll background; replace with a real image URL like from Sanrio or Unsplash */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #4b0082; /* Indigo text for contrast */
+            padding: 50px;
+            min-height: 100vh;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ff69b4; /* Pink for hearts */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        p {
+            font-size: 1.2em;
+            color: #ffffff; /* White for readability on background */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        img {
+            width: 200px; /* Made slightly larger for prominence */
+            height: auto;
+            margin: 20px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        button {
+            font-size: 1.2em;
+            padding: 15px 30px;
+            margin: 10px;
+            border: 2px solid #ff69b4;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        #yesBtn {
+            background-color: #ff1493;
+            color: white;
+        }
+        #yesBtn:hover {
+            background-color: #ff69b4;
+            transform: scale(1.1);
+        }
+        #noBtn {
+            background-color: #f0e68c; /* Khaki for a soft look */
+            color: #4b0082;
+            position: relative;
+        }
+        #response {
+            margin-top: 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Will You Be My Valentine? 🐶💕</h1>
+    <p>Sweet, fluffy, and full of love! Click yes to be my valentine, or try no if you dare... 😉</p>
+    <img src="https://via.placeholder.com/200x200/ffffff/87ceeb?text=Cinnamoroll" alt="Cinnamoroll" /> <!-- Replace with a real Cinnamoroll image URL -->
+    <br>
+    <button id="yesBtn">Yes! 😍</button>
+    <button id="noBtn">No 😔</button>
+    <div id="response"></div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const response = document.getElementById('response');
+
+        // Make the No button move away on hover or click
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        });
+
+        noBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent actual click
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            response.innerHTML = "Yay! You're my fluffy Valentine! 🎉❤️🐶";
+            response.style.color = "#ff1493";
+            noBtn.style.display = 'none'; // Hide the No button after yes is clicked
+        });
+    </script>
+</body>
+</html>
